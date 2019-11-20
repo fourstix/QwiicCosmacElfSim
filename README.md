@@ -1,10 +1,21 @@
 QwiicCosmacElfSim
 ==================
 
-An 1802 Cosmac Elf Simulator using an Arduino with Qwiic Components.
+An 1802 Cosmac Elf Simulator using an Arduino with Qwiic Components. My first computer was a Netronics Elf II.
+It was an 1802 based single board computer that was sold as a kit, but it had a hexadecimal keypad, an LED,
+video, and an expansion bus. Like many high school kids, I mowed yards and spent my hard-earned dollars
+to buy a kit from [Netronics based on their ads.](http://www.cosmacelf.com/gallery/netronics-ads/)
+
+My orignal Elf II was lost in a move long ago, so I wanted to simulate the Elf using hardware I had at hand. 
+I rewrote the UNO1802 code to support Qwiic hardware to simulator for the video, seven segment display and
+hexadecimal keypad from my Elf.
 
 Introduction
 -------------
+
+A very good source of information on the RCA 1802 chip and Cosmac Elf computer can be found on the 
+[CosmacElf web page.](http://www.cosmacelf.com). The 1802 was a fantastic microprocessor, that still has quite a 
+dedicate following today.
 
 This 1802 Cosmac Elf Arduino Qwiic simulator is based on code written by Al Williams for the Kim-UNO
 DYI Kim-1 clone written by Oscar Vermeulen.
@@ -24,20 +35,22 @@ The code can use the following hardware as part of the 1802 simulation:
 This simiulator uses [Adafruit 7 segment LED backpack](https://www.adafruit.com/product/878) for
 Hexadecimal output.
  
-A [Sparkfun Qwiic 3x4 Keypad](https://www.sparkfun.com/products/15290) can be used for key input.  The star key is used as an escape key for
-hexadeciamal keys A-F (*, 0-6) and control inputs, like run, wait (*8), load (*7), etc.
+A [Sparkfun Qwiic 3x4 Keypad](https://www.sparkfun.com/products/15290) can be used for key input.  
+The star key is used as an escape key for hexadeciamal keys A-F (*, 0-6) and control inputs, 
+like run, wait (*8), load (*7), etc.
  
 
-This code simulates a cdp1861 Pixi video chip to load a video ram buffer, rather than just dumping
-the 256 bytes of ram to the display.  This code uses a 128 x 64 graphics display supported by the
-U8G2 library as a video display.  U8G2 supports many kinds of 128 x 64 displays.  
+This code simulates a cdp1861 Pixi video chip, rather than just dumping the 256 bytes of ram to the 
+display.  This code uses a video ram buffer with a 128 x 64 graphics display supported by the
+[U8G2 graphics library](https://github.com/olikraus/u8g2) as a video display.
 
-The U8G2 graphics library is available at: https://github.com/olikraus/u8g2
+U8G2 supports many kinds of 128 x 64 displays.  A list of supported displays is available 
+[here.](https://github.com/olikraus/u8g2/wiki/u8g2setupcpp)
 
-Please see https://github.com/olikraus/u8g2/wiki/u8g2setupcpp for a list of supported displays.
- 
-This SSD1306 I2C 128 x64 OLED display available from Adadruit works fine with Qwiic.
-https://www.adafruit.com/product/938
+
+For example, The [SSD1306 I2C 128 x64 OLED display](https://www.adafruit.com/product/938) available
+from Adadruit works fine with the Qwiic interface and is supported by Uthe 8G2 graphics library.
+
  
 This code can support the [Sparkfun Qwiic EEPROM](https://www.sparkfun.com/products/14764) as a ROM source.
 
@@ -45,7 +58,35 @@ This code can support the [Sparkfun Qwiic EEPROM](https://www.sparkfun.com/produ
 It can also support an [Adafruit I2C 32K Fram](https://www.adafruit.com/product/1895) as an expanded RAM
 memory as well. The expanded ram is accessed in 256-byte pages.
 
- 
+Sample Configurations
+---------------------
+<table class="table table-hover table-striped table-bordered">
+  <tr align="center">
+   <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_EEProm.jpg"></td>
+   <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_Fram.jpg"></td> 
+  </tr>
+  <tr align="center">
+    <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SH1106 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
+    <td>Sparkfun Redboard Arduino with Sparkfun Qwiic Shield, SH106 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad, Adafruit 7 Segment backpack and Adafruit I2C 32K Fram</td>
+  </tr>
+  <tr align="center">
+   <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_Monochron.jpg"></td>
+   <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_Other.jpg"></td> 
+  </tr>
+  <tr align="center">
+    <td>Sparkfun Blackboard, Adafruit Monochron 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
+    <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SSD1306 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
+  </tr>  
+</table>
+
+
+Repository Contents
+-------------------
+* **/src**
+  * **/CosmacElfSim
+* **/docs
+* **/pics
+
 
 License Information
 -------------------
