@@ -1,3 +1,11 @@
+All of these program listing are in the form of a hexadecimal address line followed by
+the code in comma separated bytes.  One can enter the code into the 1802 simulator by placing
+it into the load mode, and then cut and pasting each line into the Arduino IDE Serial Monitor text input field and pressing enter.  The bytes will be entered into the processor simulator as if they had been typed in by hand.
+
+All programs below are copyright their respective authors.  These listing are merely to 
+provide a short-cut method of entering the code into the QwiicCosmacElfSim simulator.  The original documentation is available on CosmacElf.com.  These code listings are best used along
+with the original author's text.
+
 Programs from A Short Course in Programming by Tom Pittman
 
 Program 2.1 -- Memory Clear
