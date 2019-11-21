@@ -15,7 +15,7 @@ Introduction
 -------------
 
 A very good source of information on the RCA 1802 chip and Cosmac Elf computer can be found on the 
-[CosmacElf web page.](http://www.cosmacelf.com). The 1802 was a fantastic microprocessor that still has quite a 
+[CosmacElf web page.](http://www.cosmacelf.com) The 1802 was a fantastic microprocessor that still has quite a 
 dedicated following today.
 
 This 1802 Cosmac Elf Arduino Qwiic simulator is based on the UNO1802 code written by Al Williams for the Kim-UNO
@@ -92,7 +92,7 @@ on different combinations of Qwiic compatible hardware.
 Repository Contents
 -------------------
 * **/src/CosmacElfSim/**
-  * CosmacElfSim.ino -- main file
+  * CosmacElfSim.ino -- main Arduino file
   * Cdp1802.ino -- 1802 processor simulation engine based largely on Al Williams code.
   * InputOutput.ino -- all input/output routines for Qwiic devices
   * PixieVideo.ino -- simulation of Pixie Video using a 128 x 64 graphic display. 
