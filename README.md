@@ -38,7 +38,9 @@ Hexadecimal output.
  
 A [Sparkfun Qwiic 3x4 Keypad](https://www.sparkfun.com/products/15290) can be used for key input. The
 star key is used as an escape key for hexadeciamal keys A-F (*, 0-6) and control inputs, 
-like run, wait (*8), load (*7), etc.
+like run, wait (*8), load (*7), etc.  The Hash key (#) is used as the input key. See the 
+[documentation](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/QwiicCosmacElfSim.pdf)
+for more information.
  
 
 This code simulates a cdp1861 Pixi video chip, rather than just dumping the 256 bytes of ram to the 
@@ -65,13 +67,16 @@ Note that EEProm and Fram share the same default I2C address, but either or both
 
 Sample Configurations
 ---------------------
+Here are some sample configurations running actual [CDP1802 programs](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/Cdp1802%20SampleProgramCode.txt)
+on different combinations of Qwiic compatible hardware.
+
 <table class="table table-hover table-striped table-bordered">
   <tr align="center">
    <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_EEProm.jpg"></td>
    <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_Fram.jpg"></td> 
   </tr>
   <tr align="center">
-    <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SH1106 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
+    <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SSD1306 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
     <td>Sparkfun Redboard Arduino with Sparkfun Qwiic Shield, SH1106 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad, Adafruit 7 Segment backpack and Adafruit I2C 32K Fram</td>
   </tr>
   <tr align="center">
@@ -80,9 +85,21 @@ Sample Configurations
   </tr>
   <tr align="center">
     <td>Sparkfun Blackboard, Adafruit Monochron 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
-    <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SSD1306 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
+    <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SSD1306 Blue/Yellow 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
   </tr>  
 </table>
+
+Repository Contents
+-------------------
+* **/src/CosmacElfSim/**
+  * CosmacElfSim.ino -- main file
+  * Cdp1802.ino -- 1802 processor simulation engine based largely on Al Williams code.
+  * InputOutput.ino -- all input/output routines for Qwiic devices
+  * PixieVideo.ino -- simulation of Pixie Video using a 128 x 64 graphic display. 
+  * Rom.ino -- rom simulator using Arduino PROGMEM or Sparkfun Qwiic EEProm
+  * Config.h -- definitions to enable/disable support for various qwiic hardware
+* **/docs** -- documentation files
+* **/pics** -- pictures of sample configurations
 
 
 License Information
