@@ -19,26 +19,31 @@ A very good source of information on the RCA 1802 chip and Cosmac Elf computer c
 dedicated following today.
 
 This 1802 Cosmac Elf Arduino Qwiic simulator is based on the UNO1802 code written by Al Williams for the Kim-UNO
-DYI Kim-1 clone written by Oscar Vermeulen.
+DYI Kim-1 clone written by Oscar Vermeulen.  Information on the 1802 opcode set is available in the 
+[documentation.](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/QwiicCosmacElfSim.pdf)
 
-The Sparkfun Qwiic interface is a 3.3V I2C based interface that makes it very easy to connect various
-hardware to the Arduiono.  All hardware definitions for this code are configured in the config.h file.
+The Sparkfun [Qwiic](https://www.sparkfun.com/qwiic) interface is a 3.3V I2C based interface that makes
+it very easy to connect various hardware to the Arduiono.  All hardware definitions for this code are 
+configured in the config.h file.
+
 By changing the definitions in the config.h file one can change the hardware used by the simulation.
-All hardware components are optional, and maybe used in any combination.
+All hardware components are optional, and may be used in any combination.
 
 It's even possible to comment out all hardware defines in the config.h file and use the simulation on
-an Arduino alone through its serial interface.
+an Arduino alone through its serial monitor interface.
 
 Information on the Sparkfun Qwiic interface is available [here.](https://www.sparkfun.com/qwiic)
 
 The code can use the following hardware as part of the 1802 simulation:
 
 This simiulator uses [Adafruit 7 segment LED backpack](https://www.adafruit.com/product/878) for
-Hexadecimal output.
+hexadecimal output Please see the 
+[documentation](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/QwiicCosmacElfSim.pdf)
+for more information.
  
 A [Sparkfun Qwiic 3x4 Keypad](https://www.sparkfun.com/products/15290) can be used for key input. The
-star key is used as an escape key for hexadeciamal keys A-F (*, 0-6) and control inputs, 
-like run, wait (*8), load (*7), etc.  The Hash key (#) is used as the input key. See the 
+star key (*) is used as a shift key for hexadeciamal keys A-F (*, 0-6) and control inputs, 
+like run, wait (*8), load (*7), etc.  The hash key (#) is used as the input key. See the 
 [documentation](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/QwiicCosmacElfSim.pdf)
 for more information.
  
@@ -47,7 +52,8 @@ This code simulates a cdp1861 Pixi video chip, rather than just dumping the 256 
 display.  This code uses a video ram buffer with a 128 x 64 graphics display supported by the
 [U8G2 graphics library](https://github.com/olikraus/u8g2) as a video display.  The code will simulate
 the interrupts, external flag 1 signal, and DMA Output requests from the original pixie video.  This
-allows programs written for the original Cosmac Elf hardware to run directly on the simulator.
+allows [programs](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/Cdp1802SampleProgramCode.txt)
+written for the original Cosmac Elf hardware to run directly on the simulator.
 
 U8G2 supports many kinds of 128 x 64 displays.  A list of supported displays is available 
 [here.](https://github.com/olikraus/u8g2/wiki/u8g2setupcpp)
@@ -67,7 +73,7 @@ Note that EEProm and Fram share the same default I2C address, but either or both
 
 Sample Configurations
 ---------------------
-Here are some sample configurations running actual [CDP1802 programs](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/Cdp1802%20SampleProgramCode.txt)
+Here are some sample configurations running actual [CDP1802 programs](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/Cdp1802SampleProgramCode.txt)
 on different combinations of Qwiic compatible hardware.
 
 <table class="table table-hover table-striped table-bordered">
@@ -84,7 +90,7 @@ on different combinations of Qwiic compatible hardware.
    <td><img src="https://github.com/fourstix/QwiicCosmacElfSim/blob/master/pics/QwiicCosmacElfSim_Other.jpg"></td> 
   </tr>
   <tr align="center">
-    <td>Sparkfun Blackboard, Adafruit Monochron 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
+    <td>Sparkfun Blackboard, Adafruit Monochron 128x64 OLED display with a homemade Arduino shield, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
     <td>Sparkfun Blackboard, Sparkfun Qwiic EEProm, SSD1306 Blue/Yellow 128x64 OLED display, Sparkfun Qwiic 3x4 Keypad and Adafruit 7 Segment backpack</td>
   </tr>  
 </table>
@@ -99,6 +105,8 @@ Repository Contents
   * Rom.ino -- rom simulator using Arduino PROGMEM or Sparkfun Qwiic EEProm
   * Config.h -- definitions to enable/disable support for various qwiic hardware
 * **/docs** -- documentation files
+  * QwiicCosmacElfSim.pdf -- documentation of 1802 Instructions, Keypad and 7 Segment backpack
+  * Cdp1802SampleProgramCode.txt -- Sample 1802 code listings
 * **/pics** -- pictures of sample configurations
 
 
