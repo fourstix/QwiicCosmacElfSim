@@ -42,8 +42,8 @@ hexadecimal output Please see the
 for more information.
  
 A [Sparkfun Qwiic 3x4 Keypad](https://www.sparkfun.com/products/15290) can be used for key input. The
-star key (*) is used as a shift key for hexadeciamal keys A-F (*, 0-6) and control inputs, 
-like run, wait (*8), load (*7), etc.  The hash key (#) is used as the input key. See the 
+star key (&ast;) is used as a shift key for hexadeciamal keys A-F (&ast;, 0-6) and control inputs, 
+like run, wait (&ast;8), load (&ast;7), etc.  The hash key (#) is used as the input key. See the 
 [documentation](https://github.com/fourstix/QwiicCosmacElfSim/blob/master/docs/QwiicCosmacElfSim.pdf)
 for more information.
  
