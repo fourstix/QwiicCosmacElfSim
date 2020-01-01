@@ -48,7 +48,7 @@ like run, wait (&ast;8), load (&ast;7), etc.  The hash key (#) is used as the in
 for more information.
  
 
-This code simulates a cdp1861 Pixi video chip, rather than just dumping the 256 bytes of ram to the 
+This code simulates a Cdp1861 Pixie Video chip, rather than just dumping the 256 bytes of ram to the 
 display.  This code uses a video ram buffer with a 128 x 64 graphics display supported by the
 [U8G2 graphics library](https://github.com/olikraus/u8g2) as a video display.  The code will simulate
 the interrupts, external flag 1 signal, and DMA Output requests from the original pixie video.  This
